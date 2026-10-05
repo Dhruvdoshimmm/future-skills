@@ -13,6 +13,7 @@ $user = require_user();
 $uid = (int)$user['id'];
 $errors = [];
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'send') {
     $text = trim((string)($_POST['message'] ?? ''));
     $error = null;
