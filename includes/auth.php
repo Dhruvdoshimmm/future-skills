@@ -11,6 +11,7 @@ define('OTP_MODE', getenv('OTP_MODE') ?: 'demo');
 define('TWILIO_SID',   getenv('TWILIO_SID')   ?: '');
 define('TWILIO_TOKEN', getenv('TWILIO_TOKEN') ?: '');
 define('TWILIO_FROM',  getenv('TWILIO_FROM')  ?: '');   // your Twilio number, e.g. +1415XXXXXXX
+define('FAST2SMS_KEY', getenv('FAST2SMS_KEY') ?: '');   // Fast2SMS API key (Indian numbers only)
 const OTP_TTL = 600;        // seconds a code stays valid
 const OTP_MAX_ATTEMPTS = 5; // wrong guesses allowed per code
 
@@ -32,6 +33,35 @@ function otp_demo_allowed(): bool {
     return OTP_MODE === 'demo'
         && in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1'], true)
         && !isset($_SERVER['HTTP_X_FORWARDED_FOR']);   // never in front of a proxy
+}
+
+function sms_configured(): bool {
+    return FAST2SMS_KEY !== '' || (TWILIO_SID !== '' && TWILIO_TOKEN !== '' && TWILIO_FROM !== '');
+}
+
+/** Send the OTP through Fast2SMS (OTP route, Indian numbers). Returns null on success or an error message. */
+function send_sms_fast2sms(string $phone, string $code): ?string {
+    if (!function_exists('curl_init')) return 'SMS login is not configured on this server yet.';
+    if (!preg_match('/^\+91([6-9]\d{9})$/', $phone, $m)) {
+        return 'SMS login currently supports Indian mobile numbers (+91) only.';
+    }
+    $ch = curl_init('https://www.fast2sms.com/dev/bulkV2');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_HTTPHEADER => ['authorization: ' . FAST2SMS_KEY, 'Content-Type: application/x-www-form-urlencoded'],
+        CURLOPT_POSTFIELDS => http_build_query(['route' => 'otp', 'variables_values' => $code, 'numbers' => $m[1]]),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 10,
+    ]);
+    $resp = curl_exec($ch);
+    $http = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    $j = is_string($resp) ? json_decode($resp, true) : null;
+    if (is_array($j) && ($j['return'] ?? false) === true) return null;
+    // Log Fast2SMS's reason (never the API key or the code) so it shows in Railway logs.
+    $why = is_array($j) ? (is_array($j['message'] ?? null) ? implode('; ', $j['message']) : (string)($j['message'] ?? '')) : 'no response';
+    error_log('Fast2SMS send failed, HTTP ' . $http . ', status ' . ($j['status_code'] ?? '?') . ': ' . $why);
+    return 'We could not send the SMS right now. Please try again shortly.';
 }
 
 /** Send an SMS through Twilio. Returns null on success or an error message. */
@@ -75,7 +105,7 @@ function otp_request(string $phone): array {
     if ((int)$st->fetchColumn() >= 20) return ['ok' => false, 'error' => 'Too many requests from your network. Please try later.'];
 
     $demo = otp_demo_allowed();
-    if (!$demo && (OTP_MODE !== 'sms' || TWILIO_SID === '')) {
+    if (!$demo && (OTP_MODE !== 'sms' || !sms_configured())) {
         return ['ok' => false, 'error' => 'SMS login is not configured on this server yet.'];
     }
 
@@ -87,7 +117,9 @@ function otp_request(string $phone): array {
 
     if ($demo) return ['ok' => true, 'demo_code' => $code];
 
-    $err = send_sms($phone, "Your Future Skills login code is $code. It is valid for 10 minutes.");
+    $err = FAST2SMS_KEY !== ''
+        ? send_sms_fast2sms($phone, $code)
+        : send_sms($phone, "Your Future Skills login code is $code. It is valid for 10 minutes.");
     if ($err !== null) {
         $pdo->prepare('DELETE FROM otp_requests WHERE id = ?')->execute([$id]);
         return ['ok' => false, 'error' => $err];
