@@ -8,6 +8,10 @@ RUN docker-php-ext-install pdo_mysql \
  && a2enconf app \
  && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+# PHP needs exactly one Apache MPM (prefork). Remove any others.
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
+ && a2enmod mpm_prefork
+
 COPY . /var/www/html/
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh \
