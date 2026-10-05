@@ -143,14 +143,15 @@ function render_chat_messages(array $msgs, string $me, string $meLabel, string $
 
 /* ---------- Firebase Configuration ---------- */
 define('FIREBASE_CONFIG', [
-    'apiKey'            => 'AIzaSyBgUWoXrNVwFybnHBLihOfg3AN5o9QwNgo',
-    'authDomain'        => 'future-skills-21690.firebaseapp.com',
-    'projectId'         => 'future-skills-21690',
-    'storageBucket'     => 'future-skills-21690.firebasestorage.app',
-    'messagingSenderId' => '913658454846',
-    'appId'             => '1:913658454846:web:7487cc06cfa09ae82d026f',
-    'measurementId'     => 'G-R6NF9RH122'
+    'apiKey'            => getenv('FIREBASE_API_KEY')            ?: 'AIzaSyBgUWoXtNVwFybnHBLihOfg3AN5o9QwNgo',
+    'authDomain'        => getenv('FIREBASE_AUTH_DOMAIN')        ?: 'future-skills-21690.firebaseapp.com',
+    'projectId'         => getenv('FIREBASE_PROJECT_ID')         ?: 'future-skills-21690',
+    'storageBucket'     => getenv('FIREBASE_STORAGE_BUCKET')     ?: 'future-skills-21690.firebasestorage.app',
+    'messagingSenderId' => getenv('FIREBASE_MESSAGING_SENDER_ID') ?: '913658454846',
+    'appId'             => getenv('FIREBASE_APP_ID')             ?: '1:913658454846:web:7487cc06cfa09ae82d026f',
+    'measurementId'     => getenv('FIREBASE_MEASUREMENT_ID')     ?: 'G-R6NF9RH122'
 ]);
+
 
 function firebase_config_json(): string {
     return json_encode(FIREBASE_CONFIG, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
