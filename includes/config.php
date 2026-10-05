@@ -143,7 +143,7 @@ function render_chat_messages(array $msgs, string $me, string $meLabel, string $
 
 /* ---------- Firebase Configuration ---------- */
 $envApiKey = trim((string)getenv('FIREBASE_API_KEY'));
-$firebaseApiKey = (str_starts_with($envApiKey, 'AIza')) ? $envApiKey : 'AIzaSyBgUWoXtNVwFybnHBLihOfg3AN5o9QwNgo';
+$firebaseApiKey = (str_starts_with($envApiKey, 'AIza')) ? $envApiKey : 'AIzaSyBgUWoXrNVWfybnH8LihOfg3AN5o9QmNgo';
 
 define('FIREBASE_CONFIG', [
     'apiKey'            => $firebaseApiKey,
@@ -154,6 +154,7 @@ define('FIREBASE_CONFIG', [
     'appId'             => getenv('FIREBASE_APP_ID')             ?: '1:913658454846:web:7487cc06cfa09ae82d026f',
     'measurementId'     => getenv('FIREBASE_MEASUREMENT_ID')     ?: 'G-R6NF9RH122'
 ]);
+
 
 
 
