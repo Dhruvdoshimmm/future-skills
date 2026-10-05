@@ -1,0 +1,11 @@
+Options -Indexes
+# Never serve internal folders or project files over the web
+RedirectMatch 404 ^/(includes|data|seed|database)(/|$)
+<FilesMatch "(\.(sql|md|json|sqlite|sh|lock|env|local\.php)$|^Dockerfile$|^\.)">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

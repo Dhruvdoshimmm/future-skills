@@ -1,0 +1,6 @@
+.git
+.gitignore
+data/*.sqlite*
+includes/config.local.php
+README.md
+RAILWAY_GUIDE.md

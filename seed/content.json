@@ -1,0 +1,227 @@
+{
+    "site": {
+        "brand": "Future Skills",
+        "brand_sub": "Robotics & AI",
+        "footer_about": "Empowering young minds for tomorrow's world through robotics, Arduino microcontrollers, IoT, and Artificial Intelligence labs in schools.",
+        "email": "info@futureskills.edu.in",
+        "phone": "+91 98765 43210",
+        "address": "Technology Incubation Center, India",
+        "footer_tech_title": "Simple & Reliable",
+        "footer_tech_text": "Built on standard PHP with flat-file JSON storage. No database, no vendor lock-in, runs on any Apache or Nginx host."
+    },
+    "home": {
+        "badge": "Grades 1-12 Robotics & AI Program",
+        "hero_title": "Empowering Young Minds for Tomorrow's World",
+        "hero_subtitle": "Zero Cost Lab Setup for Schools | Grades 1-12 Program Structure | 40+ Innovative Projects (Arduino Nano/Uno, IoT, and AI)",
+        "btn_primary": "Explore Curriculum",
+        "btn_secondary": "Partner With Us",
+        "card_title": "Core Value Proposition",
+        "value_props": [
+            {
+                "title": "Zero Cost Lab Setup",
+                "text": "Complete hardware provided to schools without initial capital investment."
+            },
+            {
+                "title": "Affordable Student Model",
+                "text": "Only ₹200 / student / month for world-class experiential learning."
+            },
+            {
+                "title": "40+ Innovative Projects",
+                "text": "Arduino Nano/Uno, IoT sensors, and practical AI models."
+            }
+        ],
+        "card_cta": "Request Free School Demo",
+        "why_title": "Why Schools Choose Future Skills",
+        "why_subtitle": "Equipping students with future-proof engineering and computational thinking capabilities.",
+        "features": [
+            {
+                "icon": "fa-microchip",
+                "title": "Arduino & IoT Hardware",
+                "text": "Hands-on experience with microcontrollers, sensors, actuators, and smart automated circuits."
+            },
+            {
+                "icon": "fa-brain",
+                "title": "Artificial Intelligence",
+                "text": "Introduction to machine learning concepts, computer vision, and pattern recognition for young innovators."
+            },
+            {
+                "icon": "fa-school",
+                "title": "Zero Investment Setup",
+                "text": "Hassle-free lab deployment for school campuses with expert instructors and continuous curriculum support."
+            }
+        ],
+        "stats": [
+            {
+                "num": "1-12",
+                "label": "Grades Covered"
+            },
+            {
+                "num": "40+",
+                "label": "Hands-on Projects"
+            },
+            {
+                "num": "10",
+                "label": "Month Curriculum"
+            },
+            {
+                "num": "₹0",
+                "label": "School Investment"
+            }
+        ]
+    },
+    "scope": {
+        "title": "Program Scope & Curriculum",
+        "subtitle": "A structured 10-month journey with 8 hands-on sessions every month.",
+        "intro": "Every month follows the same proven rhythm, taking students from understanding a component to building and evaluating a complete working project.",
+        "months_title": "The 10-Month Roadmap",
+        "months": [
+            {
+                "title": "Month 1: Foundations of Electronics",
+                "text": "Safety, breadboards, LEDs, resistors, and basic circuit thinking."
+            },
+            {
+                "title": "Month 2: Meet the Arduino",
+                "text": "Arduino Nano/Uno architecture, IDE setup, digital output and first sketches."
+            },
+            {
+                "title": "Month 3: Sensors & Inputs",
+                "text": "Buttons, LDR, ultrasonic and temperature sensors; reading the real world."
+            },
+            {
+                "title": "Month 4: Motion & Actuators",
+                "text": "Servo and DC motors, motor drivers, buzzers, and controlled movement."
+            },
+            {
+                "title": "Month 5: Displays & Communication",
+                "text": "LCD/OLED displays, serial communication, and Bluetooth basics."
+            },
+            {
+                "title": "Month 6: Robotics I",
+                "text": "Line follower and obstacle-avoiding robot design and tuning."
+            },
+            {
+                "title": "Month 7: Internet of Things",
+                "text": "Connected devices, dashboards, and remote monitoring and control."
+            },
+            {
+                "title": "Month 8: Smart Systems",
+                "text": "Home and farm automation concepts using multi-sensor logic."
+            },
+            {
+                "title": "Month 9: Introduction to AI",
+                "text": "Machine learning concepts, computer vision, and pattern recognition projects."
+            },
+            {
+                "title": "Month 10: Capstone & Showcase",
+                "text": "Students design, build, and present an original project at a school expo."
+            }
+        ],
+        "sessions_title": "8 Sessions Every Month",
+        "sessions": [
+            {
+                "title": "Component Introduction",
+                "text": "Learn what the part is, how it works, and how to handle it."
+            },
+            {
+                "title": "Real-World Application",
+                "text": "See where the component is used in everyday technology."
+            },
+            {
+                "title": "Circuit Completion",
+                "text": "Wire and test the circuit step by step with guidance."
+            },
+            {
+                "title": "DIY Project I",
+                "text": "Apply the concept to a small independent build."
+            },
+            {
+                "title": "DIY Project II",
+                "text": "Extend the build with new features and creative twists."
+            },
+            {
+                "title": "AI Integration",
+                "text": "Add intelligent behavior using data, rules, or ML models."
+            },
+            {
+                "title": "Review & Troubleshooting",
+                "text": "Debug, refine, and document the project."
+            },
+            {
+                "title": "Evaluation",
+                "text": "Practical assessment and feedback on skills and understanding."
+            }
+        ]
+    },
+    "skills": {
+        "title": "Future Ready Skills",
+        "subtitle": "From technology users to technology creators.",
+        "intro": "Children today grow up surrounded by technology. Our program helps them understand it, question it, and build it.",
+        "shift_from_title": "Technology Users",
+        "shift_from_text": "Consume apps and devices without knowing how they work. Follow instructions and depend on ready-made solutions.",
+        "shift_to_title": "Technology Creators",
+        "shift_to_text": "Understand the logic behind systems, design their own solutions, and turn ideas into working prototypes.",
+        "pillars_title": "What Students Build Beyond Circuits",
+        "pillars": [
+            {
+                "icon": "fa-lightbulb",
+                "title": "Cognitive Foundations",
+                "text": "Logical reasoning, sequencing, pattern recognition, and spatial thinking developed through hands-on building."
+            },
+            {
+                "icon": "fa-magnifying-glass-chart",
+                "title": "Critical Thinking",
+                "text": "Students test assumptions, read evidence from sensors, and learn to question why something works or fails."
+            },
+            {
+                "icon": "fa-pencil-ruler",
+                "title": "Problem-Solving Through Design",
+                "text": "Define a problem, sketch a solution, prototype, test, and iterate: the engineering design cycle in action."
+            },
+            {
+                "icon": "fa-people-group",
+                "title": "Collaboration & Communication",
+                "text": "Teamwork, documentation, and presenting ideas with confidence at showcases."
+            }
+        ]
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Answers for school partners and parents.",
+        "items": [
+            {
+                "q": "What is the zero investment model for schools?",
+                "a": "Schools invest nothing upfront. We provide the complete lab setup, kits, curriculum, and trained instructors. The program is sustained through a small monthly student fee."
+            },
+            {
+                "q": "What is the student fee?",
+                "a": "The fee is ₹200 per student per month, covering kits, curriculum, instructor support, and assessments."
+            },
+            {
+                "q": "How is the hardware set up in the school?",
+                "a": "Our team installs the lab in a room of your choice: workbenches, Arduino Nano/Uno kits, sensors, modules, and storage. We maintain and replace components throughout the year."
+            },
+            {
+                "q": "Which grades does the program cover?",
+                "a": "Grades 1-12, with age-appropriate content: block-based and unplugged activities for younger learners, and Arduino, IoT, and AI projects for older students."
+            },
+            {
+                "q": "Do teachers need prior robotics experience?",
+                "a": "No. Our trained instructors lead the sessions, and school teachers are welcome to learn alongside the students."
+            },
+            {
+                "q": "How many sessions are conducted?",
+                "a": "The program runs for 10 months with 8 sessions each month, fitting neatly into a regular school timetable."
+            },
+            {
+                "q": "How can our school get started?",
+                "a": "Use the Contact Us page to request a free school demo. We will schedule a visit and walk you through the plan."
+            }
+        ]
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Request a free school demo or ask us anything.",
+        "intro": "Fill in the form and our team will get back to you shortly.",
+        "success": "Thank you! Your message has been received. We will contact you soon."
+    }
+}

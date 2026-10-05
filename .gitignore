@@ -1,0 +1,4 @@
+data/*.sqlite*
+data/*.lock
+includes/config.local.php
+.env
