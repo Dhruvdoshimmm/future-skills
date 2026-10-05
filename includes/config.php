@@ -142,8 +142,11 @@ function render_chat_messages(array $msgs, string $me, string $meLabel, string $
 }
 
 /* ---------- Firebase Configuration ---------- */
+$envApiKey = trim((string)getenv('FIREBASE_API_KEY'));
+$firebaseApiKey = (str_starts_with($envApiKey, 'AIza')) ? $envApiKey : 'AIzaSyBgUWoXtNVwFybnHBLihOfg3AN5o9QwNgo';
+
 define('FIREBASE_CONFIG', [
-    'apiKey'            => getenv('FIREBASE_API_KEY')            ?: 'AIzaSyBgUWoXtNVwFybnHBLihOfg3AN5o9QwNgo',
+    'apiKey'            => $firebaseApiKey,
     'authDomain'        => getenv('FIREBASE_AUTH_DOMAIN')        ?: 'future-skills-21690.firebaseapp.com',
     'projectId'         => getenv('FIREBASE_PROJECT_ID')         ?: 'future-skills-21690',
     'storageBucket'     => getenv('FIREBASE_STORAGE_BUCKET')     ?: 'future-skills-21690.firebasestorage.app',
@@ -151,6 +154,7 @@ define('FIREBASE_CONFIG', [
     'appId'             => getenv('FIREBASE_APP_ID')             ?: '1:913658454846:web:7487cc06cfa09ae82d026f',
     'measurementId'     => getenv('FIREBASE_MEASUREMENT_ID')     ?: 'G-R6NF9RH122'
 ]);
+
 
 
 function firebase_config_json(): string {
